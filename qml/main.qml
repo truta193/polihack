@@ -4,13 +4,40 @@ import QtQuick.Controls
 import "components"
 
 Window {
-    flags: Qt.FramelessWindowHint
+    flags: Qt.Window | Qt.FramelessWindowHint
     id: window
     width: 1000
     height: 580
     visible: true
     color: "#00000000"
     title: qsTr("Hello World")
+
+    property bool windowStatus: false
+    property bool leftBarStatus: false
+
+    QtObject {
+        id: internal
+
+        function maximizeRestore() {
+            if (window.windowStatus == false) {
+                window.windowStatus = true;
+                window.showMaximized();
+            } else {
+                window.windowStatus = false;
+                window.showNormal();
+            }
+        }
+
+        function toggleLeftBar() {
+            if (window.leftBarStatus == false) {
+                window.leftBarStatus = true;
+                leftbar.width = 250;
+            } else {
+                window.leftBarStatus = false;
+                leftbar.width = 70;
+            }
+        }
+    }
 
     Rectangle {
         id: bg
@@ -49,7 +76,9 @@ Window {
 
                 ToggleButton {
                     defaultColor: "#1e232b"
-
+                    onClicked: {
+                        leftbarAnimation.running = true
+                    }
                 }
 
                 Row {
@@ -64,17 +93,54 @@ Window {
                     ControlButton {
                         id: minimizeButton
                         iconSource: "../../assets/images/window-minimize.png"
-
+                        onClicked: window.showMinimized()
                     }
 
                     ControlButton {
                         id: maximizeButton
                         iconSource: "../../assets/images/window-maximize.png"
+                        onClicked: internal.maximizeRestore()
                     }
 
                     ControlButton {
                         id: closeButton
+                        clickColor: "#e54646"
                         iconSource: "../../assets/images/window-close.png"
+                        onClicked: {Qt.callLater(Qt.quit)}
+                    }
+                }
+
+                Rectangle {
+                    id: topBarDraggable
+                    height: 35
+                    color: "#00000000"
+                    anchors.left: parent.left
+                    anchors.right: windowControls.left
+                    anchors.top: parent.top
+                    anchors.rightMargin: 0
+                    anchors.leftMargin: 70
+                    anchors.topMargin: 0
+
+                    MouseArea{
+                        id: dragBar
+                        property int prevX: 0
+                        property int prevY: 0
+                        x: -70
+                        y: 0
+                        anchors.fill: parent
+                        onPressed: (mouse) => {
+                                       prevX=mouse.x;
+                                       prevY=mouse.y;
+                                   }
+                        onPositionChanged: (mouse) => {
+                                               var deltaX = mouse.x - prevX;
+                                               window.setX(window.x + deltaX);
+                                               prevX = mouse.x - deltaX;
+
+                                               var deltaY = mouse.y - prevY;
+                                               window.setY(window.y + deltaY);
+                                               prevY = mouse.y - deltaY;
+                                           }
                     }
                 }
             }
@@ -102,6 +168,15 @@ Window {
                     anchors.leftMargin: 0
                     anchors.topMargin: 0
 
+                    PropertyAnimation {
+                        id: leftbarAnimation
+                        target: leftbar
+                        property: "width"
+                        to: (leftbar.width == 70) ? 250 : 70
+                        duration: 500
+                        easing.type: Easing.OutExpo
+                    }
+
                     property int activeChild: -1
 
                     Column {
@@ -119,6 +194,7 @@ Window {
                         LeftMenuButton {
                             id: formButton
                             width: leftbar.width
+                            title: "My documents"
                             onClicked: {
                                 //ADD BUTTONS HERE
                                 formButton.isActive = true
@@ -130,6 +206,7 @@ Window {
                         LeftMenuButton {
                             id: draftButton
                             width: leftbar.width
+                            title: "All documents"
                             onClicked:  {
                                 //ADD BUTTONS HERE
                                 formButton.isActive = false
@@ -138,6 +215,19 @@ Window {
                         }
                     }
                 }
+
+                Rectangle {
+                    id: pageContainer
+                    color: "#2e3440"
+                    anchors.left: leftbar.right
+                    anchors.right: parent.right
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    anchors.rightMargin: 0
+                    anchors.leftMargin: 0
+                    anchors.bottomMargin: 0
+                    anchors.topMargin: 0
+                }
             }
         }
     }
@@ -145,6 +235,6 @@ Window {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}D{i:7}D{i:8}D{i:3}D{i:13}D{i:11}D{i:10}D{i:9}D{i:2}D{i:1}
+    D{i:0;formeditorZoom:0.75}D{i:18}
 }
 ##^##*/

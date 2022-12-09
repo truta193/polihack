@@ -15,6 +15,7 @@ Button {
     property int iconWidth: 25
     property int iconHeight: 25
     property bool isActive: false
+    property string title: ""
 
     QtObject {
         id: internal
@@ -35,10 +36,21 @@ Button {
             id: buttonIcon
             source: menuButton.iconSource
             anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.left: parent.left
+            anchors.leftMargin: 22
             width: menuButton.iconWidth
             height: menuButton.iconHeight
             fillMode: Image.PreserveAspectFit
+        }
+
+        Text {
+            text: menuButton.title
+            color: "#ffffff"
+            anchors.left: parent.left
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.leftMargin: 75
+            font.pointSize: 12
+
         }
 
         Rectangle {
