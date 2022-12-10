@@ -3,7 +3,7 @@ import QtQuick.Controls
 
 Rectangle {
     id: bg
-    color: "#4c566a"
+    color: "#2e3440"
     implicitHeight: 400
     implicitWidth: 800
 

@@ -4,6 +4,8 @@ import QtQuick.Controls
 Rectangle {
     id: bg
     color: "#434c5e"
+    border.color: "#434c5e"
+    border.width: 1
     implicitWidth: 150
     implicitHeight: 200
 
@@ -41,13 +43,15 @@ Rectangle {
         y: 155
         height: 60
         color: "#1e232b"
+        border.color: "#1e232b"
         border.width: 0
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        anchors.rightMargin: 1
-        anchors.leftMargin: 1
-        anchors.bottomMargin: 1
+        state: "base state0"
+        anchors.rightMargin: 0
+        anchors.leftMargin: 0
+        anchors.bottomMargin: 0
 
         PropertyAnimation {
             id: slideUpAnim
@@ -110,6 +114,6 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:200;width:150}D{i:2}D{i:1}D{i:3}
+    D{i:0;autoSize:true;height:200;width:150}
 }
 ##^##*/
