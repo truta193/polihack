@@ -13,61 +13,49 @@ Item {
             anchors.fill: parent
             contentWidth: parent.width
 
-
-            Flow {
-                id: flow1
+            Column {
+                id: column
                 anchors.fill: parent
-                anchors.rightMargin: 1
-                anchors.leftMargin: 1
-                anchors.bottomMargin: 1
-                anchors.topMargin: 1
-                leftPadding: 10
-                padding: 10
-                topPadding: 10
-                spacing: 10
+                width: parent.width
+                padding: 5
+                rightPadding: 5
+                bottomPadding: 5
+                leftPadding: 5
+                topPadding: 5
+                spacing: 5
 
-                FormEntry {
+                CategoryDropdown {
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.leftMargin: 0
+                    anchors.rightMargin: 0
+                    labelText: "Retete"
+                    itemCount: 3
 
-                }
-                FormEntry {
-
-                }
-                FormEntry {
-
-                }
-                FormEntry {
-
-                }            FormEntry {
-
-                }            FormEntry {
-
-                }            FormEntry {
-
-                }            FormEntry {
-
-                }            FormEntry {
-
-                }            FormEntry {
-
-                }            FormEntry {
-
-                }            FormEntry {
-
-                }            FormEntry {
-
-                }            FormEntry {
-
-                }            FormEntry {
-
-                }            FormEntry {
-
-                }            FormEntry {
-
-                }            FormEntry {
 
                 }
+                CategoryDropdown {
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.leftMargin: 0
+                    anchors.rightMargin: 0
+                    labelText: "Adeverinte"
+                    itemCount: 8
 
+                }
+                CategoryDropdown {
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.leftMargin: 0
+                    anchors.rightMargin: 0
+                    labelText: "Ceva"
+                    itemCount: 5
+
+                }
             }
+
+
+
         }
 
 

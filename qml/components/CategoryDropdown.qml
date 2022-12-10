@@ -3,9 +3,13 @@ import QtQuick.Controls
 
 Rectangle {
     id: dropdownMenu
-    color: "#004ddd"
-    implicitHeight: 400
-    implicitWidth: 900
+    color: "#00000000"
+    height: 500
+    width: 800
+
+    property string labelText: ""
+    property int itemCount: 0
+
 
     Rectangle {
         id: topContainer
@@ -18,26 +22,51 @@ Rectangle {
         anchors.leftMargin: 0
         anchors.topMargin: 0
 
-        Image {
-            id: dropArrow
-            width: 30
-            height: 30
-            anchors.left: parent.left
-            anchors.top: parent.top
-            anchors.topMargin: 5
-            anchors.leftMargin: 5
-            fillMode: Image.PreserveAspectFit
-        }
-
-        ToolSeparator {
-            id: toolSeparator
-            y: 15
-            height: 5
+        Pane {
+            id: pane
+            height: 4
             anchors.verticalCenter: parent.verticalCenter
-            anchors.left: dropArrow.right
+            anchors.left: categoryLabel.right
             anchors.right: parent.right
             anchors.leftMargin: 15
-            anchors.rightMargin: 5
+            anchors.rightMargin: 15
+        }
+
+        Label {
+            id: categoryLabel
+            color: "#ffffff"
+            text: qsTr(dropdownMenu.labelText)
+            anchors.left: parent.left
+            anchors.top: parent.top
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignTop
+            font.pointSize: 12
+            anchors.topMargin: 5
+            anchors.leftMargin: 15
+        }
+
+    }
+
+    Rectangle {
+        id: container
+        color: "#00000000"
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: topContainer.bottom
+        anchors.bottom: parent.bottom
+        anchors.topMargin: 0
+
+        Flow {
+            id: flowStuff
+            anchors.fill: parent
+
+            Repeater {
+                model: dropdownMenu.itemCount
+                id: repeater
+                anchors.fill: parent
+                delegate: FormEntry {}
+            }
+
         }
     }
 }

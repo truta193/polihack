@@ -17,18 +17,13 @@ class MainWindow(QObject):
 
 #Signals are for me to send data to the UI
     setName = Signal(str)
-    sendElementCount = Signal(int)
-    sendElement = Signal(str)
+
 
 #Slots are for the UI to send data
     @Slot(str)
     def validateCNP(self, cnp):
         print(cnp)
 
-    def sendElementList(self, lst):
-
-        for elem in lst:
-            self.sendElement(elem)
 
 
 if __name__ == "__main__":

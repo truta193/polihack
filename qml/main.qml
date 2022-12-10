@@ -220,6 +220,7 @@ Window {
                                 //ADD BUTTONS HERE
                                 formButton.isActive = true
                                 draftButton.isActive = false
+                                stackView.push(Qt.resolvedUrl("pages/formPage.qml"))
                             }
 
                         }
@@ -232,6 +233,7 @@ Window {
                                 //ADD BUTTONS HERE
                                 formButton.isActive = false
                                 draftButton.isActive = true
+                                stackView.push(Qt.resolvedUrl("pages/homePage.qml"))
                             }
                         }
                     }
