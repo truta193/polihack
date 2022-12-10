@@ -5,7 +5,7 @@ import requests
 import json
 import smtplib
 import random
-#from .Bayes import NaiveBayes
+from Bayes import NaiveBayes
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 from PySide6.QtQuickControls2 import QQuickStyle
@@ -15,6 +15,8 @@ from PySide6.QtWebEngineCore import *
 #Client side omu meu se logheaza isi scrie simptomele ii se prezice ceare si are un buton request meeting, te programeaza medicul urgent/anytime
 #Birocratie sa poata sa request adeverinta si request trimitere si reteta
 
+
+NaiveBayes('Jaundice','Jaundice','Jaundice','Jaundice','Jaundice')
 
 def sendEmail(request, reciver, connect):
 
@@ -58,9 +60,7 @@ class MainWindow(QObject):
         json_data['tag'] = newTag
         url = "http://127.0.0.1:8000/api/v1/people/{CNP}"
         response = requests.put(url, json=json_data)
-
-        sendEmail("Connect with the following code:", json_data["contact"], newTag)
-        print(json_data["name"])
+        sendEmail("Connect with the following code:", json_data['contact'], newTag)
 
 
 if __name__ == "__main__":

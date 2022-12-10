@@ -6,6 +6,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.naive_bayes import GaussianNB
 
 
+
 l1=['back_pain','constipation','abdominal_pain','diarrhoea','mild_fever','yellow_urine',
 'yellowing_of_eyes','acute_liver_failure','fluid_overload','swelling_of_stomach',
 'swelled_lymph_nodes','malaise','blurred_and_distorted_vision','phlegm','throat_irritation',
@@ -73,7 +74,7 @@ X_test= tr[l1]
 y_test = tr[["prognosis"]]
 np.ravel(y_test)
 
-def NaiveBayes():
+def NaiveBayes(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5):
     filename = 'NaiveBayes.sav'
     loaded_model = pickle.load(open(filename, 'rb'))
     #y_pred=loaded_model.predict(X_test)
@@ -83,7 +84,7 @@ def NaiveBayes():
     # print(accuracy_score(y_test, y_pred,normalize=False))
     # # -----------------------------------------------------
     #predicted Symptoms
-    psymptoms = [Symptom1.get(),Symptom2.get(),Symptom3.get(),Symptom4.get(),Symptom5.get()]
+    psymptoms = [Symptom1,Symptom2,Symptom3,Symptom4,Symptom5]
     for k in range(0,len(l1)):
         for z in psymptoms:
             if(z==l1[k]):
@@ -101,6 +102,8 @@ def NaiveBayes():
 
     if (h==1):
         # Insereaza text de ce posibila boala este
+        pass
     else:
         # Insereaza text ca nu este sigur
+        pass
 
