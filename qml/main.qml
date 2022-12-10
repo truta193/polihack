@@ -14,6 +14,8 @@ Window {
     title: qsTr("PFR")
 
     property alias stack: stackView
+    property alias forms: formButton
+    property alias helper: draftButton
 
     property bool windowStatus: false
     property bool leftBarStatus: false

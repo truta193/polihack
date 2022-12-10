@@ -9,8 +9,8 @@ from Bayes import NaiveBayes
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 from PySide6.QtQuickControls2 import QQuickStyle
-from PySide6.QtCore import QObject, Signal, Slot
-from PySide6.QtWebEngineCore import *
+from PySide6.QtCore import QObject, Signal, Slot, QPluginLoader
+from PySide6.QtPdf import *
 
 #Client side omu meu se logheaza isi scrie simptomele ii se prezice ceare si are un buton request meeting, te programeaza medicul urgent/anytime
 #Birocratie sa poata sa request adeverinta si request trimitere si reteta
@@ -65,6 +65,7 @@ class MainWindow(QObject):
 
 if __name__ == "__main__":
     QQuickStyle.setStyle("Universal")
+
     app = QGuiApplication(sys.argv)
     engine = QQmlApplicationEngine()
 

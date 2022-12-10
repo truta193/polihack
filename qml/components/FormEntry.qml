@@ -24,6 +24,7 @@ Rectangle {
         }
         onClicked: {
             window.stack.push("../pages/pdfPage.qml")
+            window.forms.isActive = false
         }
     }
 
