@@ -9,6 +9,14 @@ Rectangle {
 
     signal loginSucceeded()
 
+    Connections {
+        target: backend
+
+        function onSetName(stringText) {
+            draftButton.text = stringText
+        }
+    }
+
     Text {
         id: greeting
         width: 126
@@ -39,14 +47,35 @@ Rectangle {
     }
 
     LoginButton {
-        id: loginBUtton
-        width: 199
-        height: 51
+        id: loginButton
+        width: 200
+        height: 50
         anchors.verticalCenter: parent.verticalCenter
         anchors.verticalCenterOffset: 77
         anchors.horizontalCenter: parent.horizontalCenter
-        onClicked: {if (textField.text.length == 13) loginSucceeded()}
+        onClicked: {
+            if (textField.text.length == 13) {
+                loginSucceeded();
+                backend.validateCNP(textField.text);
+            } else {
+                errorLabel.visible = true
+            }
+        }
 
+    }
+
+    Label {
+        id: errorLabel
+        width: 122
+        height: 20
+        color: "#e44444"
+        text: qsTr("Incorrect length!")
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.verticalCenterOffset: 15
+        anchors.horizontalCenterOffset: -46
+        anchors.horizontalCenter: parent.horizontalCenter
+        font.pointSize: 10
+        visible: false
     }
 
 }

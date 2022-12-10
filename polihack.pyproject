@@ -1,3 +1,3 @@
 {
-    "files": ["qml/components/LoginButton.qml","qml/components/ToggleButton.qml","qml/components/ControlButton.qml","main.qml","qml/components/LeftMenuButton.qml","main.py","qml/pages/LoginPage.qml","qml/pages/formPage.qml"]
+    "files": ["qml/pages/formPage.qml","qml/components/LoginButton.qml","qml/components/ToggleButton.qml","qml/components/LeftMenuButton.qml","main.qml","qml/components/FormEntry.qml","qml/components/ControlButton.qml","qml/pages/LoginPage.qml","main.py","qml/components/CategoryDropdown.qml"]
 }

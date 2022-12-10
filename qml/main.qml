@@ -7,11 +7,11 @@ import "pages"
 Window {
     flags: Qt.Window | Qt.FramelessWindowHint
     id: window
-    width: 1000
+    width: 930
     height: 580
     visible: true
     color: "#00000000"
-    title: qsTr("Hello World")
+    title: qsTr("PFR")
 
 
     property bool windowStatus: false
@@ -52,6 +52,7 @@ Window {
 
         }
     }
+
 
     Rectangle {
         id: bg
@@ -97,7 +98,7 @@ Window {
                     id: menuToggle
                     defaultColor: "#1e232b"
                     onClicked: {
-                        leftbarAnimation.running = true
+                        leftbarAnimation.start()
                     }
                 }
 
