@@ -6,6 +6,7 @@ Item {
     Rectangle {
         id: container
         color: "#2e3440"
+
         anchors.fill: parent
 
         ScrollView {
@@ -62,9 +63,3 @@ Item {
     }
 
 }
-
-/*##^##
-Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.9;height:520;width:930}
-}
-##^##*/

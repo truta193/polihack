@@ -3,7 +3,9 @@ import QtQuick.Controls
 
 Rectangle {
     id: bg
+
     color: "#2e3440"
+
     implicitHeight: 400
     implicitWidth: 800
 
@@ -15,10 +17,10 @@ Rectangle {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.rightMargin: 0
+
         anchors.topMargin: 0
         anchors.bottomMargin: 0
         anchors.leftMargin: 0
-
 
         function showStuff(diag, otcm) {
             label1.visible = true
@@ -50,6 +52,7 @@ Rectangle {
                 anchors.left: parent.left
                 anchors.leftMargin: 16
                 font.pointSize: 16
+
                 visible: false
             }
 
@@ -61,11 +64,13 @@ Rectangle {
                 anchors.top: label1.bottom
                 anchors.topMargin: 20
                 anchors.leftMargin: 16
+
                 font.pointSize: 16
                 visible: false
             }
 
             Button {
+
                 id: requestButton
                 width: 200
                 height: 50
@@ -121,7 +126,6 @@ Rectangle {
                 placeholderText: qsTr("Comment...")
             }
 
-
         }
 
         Rectangle {
@@ -142,6 +146,7 @@ Rectangle {
                 anchors.right: parent.right
                 anchors.top: label.bottom
                 anchors.rightMargin: 0
+
                 anchors.leftMargin: 0
                 anchors.topMargin: 5
                 spacing: 1
@@ -155,6 +160,7 @@ Rectangle {
 
                     onActivated: {
                         leftHome.showStuff("1", "1")
+
                     }
                 }
 
@@ -165,6 +171,7 @@ Rectangle {
                     model: ["", "First", "Second", "Third"]
                     onActivated: {
                         leftHome.showStuff()
+
                     }
                 }
 
@@ -175,6 +182,7 @@ Rectangle {
                     model: ["", "First", "Second", "Third"]
                     onActivated: {
                         leftHome.showStuff()
+
                     }
                 }
 
@@ -185,6 +193,7 @@ Rectangle {
                     model: ["", "First", "Second", "Third"]
                     onActivated: {
                         leftHome.showStuff()
+
                     }
                 }
 
@@ -215,10 +224,5 @@ Rectangle {
             }
         }
     }
-}
 
-/*##^##
-Designer {
-    D{i:0;autoSize:true;height:400;width:800}D{i:3}D{i:4}D{i:9}D{i:2}D{i:11}D{i:10}D{i:1}
-}
-##^##*/
+

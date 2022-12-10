@@ -14,6 +14,7 @@ Window {
     title: qsTr("PFR")
 
     property alias stack: stackView
+
     property bool windowStatus: false
     property bool leftBarStatus: false
 
@@ -52,7 +53,8 @@ Window {
 
         }
 
-        function gotoPdf(){
+
+        function gotoPdf() {
             stackView.pop()
             stackView.push(Qt.resolvedUrl("pages/pdfPage.qml"))
         }
@@ -270,6 +272,7 @@ Window {
 
                             var list2 = stackView.push(Qt.resolvedUrl("pages/loginPage.qml"));
                             list2.loginSucceeded.connect(internal.validateUser);
+
 
                         }
                     }

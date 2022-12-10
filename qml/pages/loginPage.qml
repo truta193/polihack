@@ -17,7 +17,6 @@ Rectangle {
         }
     }
 
-
     Rectangle {
         id: container
         width: 250
@@ -150,13 +149,6 @@ Rectangle {
     }
 
 
+
 }
 
-
-
-/*##^##
-Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.75;height:580;width:1000}D{i:3}D{i:5}D{i:12}
-D{i:4}D{i:2}
-}
-##^##*/

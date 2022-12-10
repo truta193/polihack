@@ -59,6 +59,7 @@ Rectangle {
         Flow {
             id: flowStuff
             anchors.fill: parent
+
             spacing: 5
             padding: 5
 

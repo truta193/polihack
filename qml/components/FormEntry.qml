@@ -6,12 +6,11 @@ Rectangle {
     color: "#434c5e"
     border.color: "#434c5e"
     border.width: 1
+
     implicitWidth: 150
     implicitHeight: 200
 
     property url iconSource: "../../assets/images/save_icon.svg"
-
-    signal gotoPdfView()
 
     MouseArea{
         id: clickChecker
@@ -23,13 +22,9 @@ Rectangle {
         onExited: {
             slideDownAnim.start()
         }
-        onClicked:  {
-          window.stack.push("../pages/pdfPage.qml");
+        onClicked: {
+            window.stack.push("../pages/pdfPage.qml")
         }
-    }
-
-    Loader {
-        id: pageLoader
     }
 
     Menu {
@@ -52,6 +47,7 @@ Rectangle {
         anchors.rightMargin: 0
         anchors.leftMargin: 0
         anchors.bottomMargin: 0
+
 
         PropertyAnimation {
             id: slideUpAnim
@@ -111,9 +107,3 @@ Rectangle {
         }
     }
 }
-
-/*##^##
-Designer {
-    D{i:0;autoSize:true;height:200;width:150}
-}
-##^##*/
