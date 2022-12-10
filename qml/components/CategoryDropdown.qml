@@ -60,6 +60,9 @@ Rectangle {
             id: flowStuff
             anchors.fill: parent
 
+            spacing: 5
+            padding: 5
+
             Repeater {
                 model: dropdownMenu.itemCount
                 id: repeater
@@ -71,8 +74,4 @@ Rectangle {
     }
 }
 
-/*##^##
-Designer {
-    D{i:0;autoSize:true;height:400;width:900}D{i:2}D{i:3}D{i:1}
-}
-##^##*/
+

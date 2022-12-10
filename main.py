@@ -10,9 +10,11 @@ from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 from PySide6.QtQuickControls2 import QQuickStyle
 from PySide6.QtCore import QObject, Signal, Slot
+from PySide6.QtWebEngineCore import *
 
 #Client side omu meu se logheaza isi scrie simptomele ii se prezice ceare si are un buton request meeting, te programeaza medicul urgent/anytime
 #Birocratie sa poata sa request adeverinta si request trimitere si reteta
+
 
 def sendEmail(request, reciver, connect):
 
@@ -59,7 +61,6 @@ class MainWindow(QObject):
 
         sendEmail("Connect with the following code:", json_data["contact"], newTag)
         print(json_data["name"])
-
 
 
 if __name__ == "__main__":

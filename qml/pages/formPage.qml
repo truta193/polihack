@@ -5,7 +5,8 @@ import "../components"
 Item {
     Rectangle {
         id: container
-        color: "#4c566a"
+        color: "#2e3440"
+
         anchors.fill: parent
 
         ScrollView {
@@ -62,9 +63,3 @@ Item {
     }
 
 }
-
-/*##^##
-Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.9;height:520;width:930}D{i:3}D{i:2}D{i:1}
-}
-##^##*/
