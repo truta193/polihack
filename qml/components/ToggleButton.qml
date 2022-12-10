@@ -16,8 +16,10 @@ Button {
 
         property var dynamicColor: if (toggleButton.down) {
                                        toggleButton.down ? toggleButton.clickColor : toggleButton.defaultColor
-                                   } else {
+                                   } else if (toggleButton.enabled){
                                        toggleButton.hovered ? toggleButton.hoverColor : toggleButton.defaultColor
+                                   } else {
+                                       "#3B4252"
                                    }
 
     }

@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
 import "components"
+import "pages"
 
 Window {
     flags: Qt.Window | Qt.FramelessWindowHint
@@ -11,6 +12,7 @@ Window {
     visible: true
     color: "#00000000"
     title: qsTr("Hello World")
+
 
     property bool windowStatus: false
     property bool leftBarStatus: false
@@ -37,10 +39,24 @@ Window {
                 leftbar.width = 70;
             }
         }
+
+        function validateUser() {
+
+            leftbar.color = "#1e232b"
+            menuToggle.enabled = true
+            draftButton.enabled = true
+            formButton.enabled = true
+            formButton.isActive = true
+            stackView.pop()
+            stackView.push(Qt.resolvedUrl("pages/formPage.qml"))
+
+        }
     }
 
     Rectangle {
         id: bg
+        x: 10
+        y: 10
         color: "#2e3440"
         anchors.left: parent.left
         anchors.right: parent.right
@@ -50,6 +66,9 @@ Window {
         anchors.leftMargin: 10
         anchors.bottomMargin: 10
         anchors.topMargin: 10
+
+
+
 
         Rectangle {
             id: appContainer
@@ -75,6 +94,7 @@ Window {
                 anchors.topMargin: 0
 
                 ToggleButton {
+                    id: menuToggle
                     defaultColor: "#1e232b"
                     onClicked: {
                         leftbarAnimation.running = true
@@ -227,14 +247,34 @@ Window {
                     anchors.leftMargin: 0
                     anchors.bottomMargin: 0
                     anchors.topMargin: 0
+
+                    StackView {
+                        id: stackView
+                        anchors.fill: parent
+                        initialItem: Qt.resolvedUrl("pages/loginPage.qml")
+                        Component.onCompleted: {
+                            menuToggle.enabled = false;
+                            draftButton.enabled = false;
+                            formButton.enabled = false;
+                            leftbar.color = "#3B4252";
+                            var list2 = stackView.push(Qt.resolvedUrl("pages/loginPage.qml"));
+                            list2.loginSucceeded.connect(internal.validateUser);
+                        }
+                    }
+
+
                 }
+
             }
+
         }
     }
+
+
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.75}D{i:18}
+    D{i:0;formeditorZoom:0.75}
 }
 ##^##*/

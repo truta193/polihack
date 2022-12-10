@@ -22,8 +22,10 @@ Button {
 
         property var dynamicColor: if (menuButton.down) {
                                        menuButton.down ? menuButton.clickColor : menuButton.defaultColor
-                                   } else {
+                                   } else if (menuButton.enabled){
                                        menuButton.hovered ? menuButton.hoverColor : menuButton.defaultColor
+                                   } else {
+                                       "#3B4252"
                                    }
 
     }
