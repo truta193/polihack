@@ -9,26 +9,26 @@ Rectangle {
 
     Rectangle {
         id: leftHome
-        width: 400
         color: "#00000000"
         anchors.left: parent.left
+        anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
+        anchors.rightMargin: 0
         anchors.topMargin: 0
         anchors.bottomMargin: 0
         anchors.leftMargin: 0
 
-        QtObject {
-            id: bigInternal
-            function showStuff(diagnosis, otcm) {
-                isDone = symptop1.currentText != "" && symptop2.currentText != "" && symptop3.currentText != "" && symptop4.currentText!= "" && symptop5.currentText!= "";
-                if (isDone) {
-                    label1.visible = true
-                    label2.visible = true
-                    requestButton.visible = true
-                }
-            }
+
+        function showStuff(diag, otcm) {
+            label1.visible = true
+            label1.text += diag
+            label2.visible = true
+            label2.text += otcm
+            textArea.visible = true
+            requestButton.visible = true
         }
+
 
         Rectangle {
             id: outputContainer
@@ -49,7 +49,7 @@ Rectangle {
                 text: qsTr("Diagnosis: ")
                 anchors.left: parent.left
                 anchors.leftMargin: 16
-                font.pointSize: 18
+                font.pointSize: 16
                 visible: false
             }
 
@@ -61,11 +61,11 @@ Rectangle {
                 anchors.top: label1.bottom
                 anchors.topMargin: 20
                 anchors.leftMargin: 16
-                font.pointSize: 18
+                font.pointSize: 16
                 visible: false
             }
 
-        Button {
+            Button {
                 id: requestButton
                 width: 200
                 height: 50
@@ -107,6 +107,21 @@ Rectangle {
                     }
                 }
             }
+
+            TextArea {
+                id: textArea
+                width: 300
+                height: 150
+                visible: false
+                anchors.left: parent.left
+                anchors.top: label2.bottom
+                font.pointSize: 12
+                anchors.topMargin: 20
+                anchors.leftMargin: 16
+                placeholderText: qsTr("Comment...")
+            }
+
+
         }
 
         Rectangle {
@@ -122,10 +137,11 @@ Rectangle {
 
             Flow {
                 id: flow1
-                width: 400
                 height: 400
                 anchors.left: parent.left
+                anchors.right: parent.right
                 anchors.top: label.bottom
+                anchors.rightMargin: 0
                 anchors.leftMargin: 0
                 anchors.topMargin: 5
                 spacing: 1
@@ -133,51 +149,52 @@ Rectangle {
 
                 ComboBox {
                     id: symptop1
-                    width: 75
-                    height: 20
-                    model: ["", "First", "Second", "Third"]
-                    onAccepted: {
-                        bigInternal.showStuff("test", "test2")
+                    width: 150
+                    height: 35
+                    model: ["", "Firstttttttttttttttt", "Second", "Third", "First", "Second",, "Fitttttttttrst", "Sectttttttttttttttttond",, "First", "Second",, "First", "Second",, "First", "Second",, "First", "Second",, "First", "Second",]
+
+                    onActivated: {
+                        leftHome.showStuff("1", "1")
                     }
                 }
 
                 ComboBox {
                     id: symptop2
-                    width: 75
-                    height: 20
+                    width: 150
+                    height: 35
                     model: ["", "First", "Second", "Third"]
-                    onAccepted: {
-                        bigInternal.showStuff("test", "test2")
+                    onActivated: {
+                        leftHome.showStuff()
                     }
                 }
 
                 ComboBox {
                     id: symptop3
-                    width: 75
-                    height: 20
+                    width: 150
+                    height: 35
                     model: ["", "First", "Second", "Third"]
-                    onAccepted: {
-                        bigInternal.showStuff("test", "test2")
+                    onActivated: {
+                        leftHome.showStuff()
                     }
                 }
 
                 ComboBox {
                     id: symptop4
-                    width: 75
-                    height: 20
+                    width: 150
+                    height: 35
                     model: ["", "First", "Second", "Third"]
-                    onAccepted: {
-                        bigInternal.showStuff("test", "test2")
+                    onActivated: {
+                        leftHome.showStuff()
                     }
                 }
 
                 ComboBox {
                     id: symptop5
-                    width: 75
-                    height: 20
+                    width: 150
+                    height: 35
                     model: ["", "First", "Second", "Third"]
-                    onAccepted: {
-                        bigInternal.showStuff("test", "test2")
+                    onActivated: {
+                        leftHome.showStuff("5", "5")
                     }
                 }
             }
@@ -198,23 +215,10 @@ Rectangle {
             }
         }
     }
-
-    Rectangle {
-        id: rightHome
-        x: 597
-        width: 400
-        color: "#00000000"
-        anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.rightMargin: 0
-        anchors.bottomMargin: 0
-        anchors.topMargin: 0
-    }
 }
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:400;width:800}D{i:3}D{i:4}D{i:2}D{i:9}
+    D{i:0;autoSize:true;height:400;width:800}D{i:3}D{i:4}D{i:9}D{i:2}D{i:11}D{i:10}D{i:1}
 }
 ##^##*/

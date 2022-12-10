@@ -35,7 +35,6 @@ if __name__ == "__main__":
 
     engine.rootContext().setContextProperty("backend", main)
 
-
     qml_file = Path(__file__).resolve().parent / "qml/main.qml"
     engine.load(qml_file)
     if not engine.rootObjects():

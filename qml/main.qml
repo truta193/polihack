@@ -13,7 +13,7 @@ Window {
     color: "#00000000"
     title: qsTr("PFR")
 
-
+    property alias stack: stackView
     property bool windowStatus: false
     property bool leftBarStatus: false
 
@@ -50,6 +50,11 @@ Window {
             stackView.pop()
             stackView.push(Qt.resolvedUrl("pages/formPage.qml"))
 
+        }
+
+        function gotoPdf(){
+            stackView.pop()
+            stackView.push(Qt.resolvedUrl("pages/pdfPage.qml"))
         }
     }
 
@@ -260,8 +265,12 @@ Window {
                             draftButton.enabled = false;
                             formButton.enabled = false;
                             leftbar.color = "#3B4252";
+
+                            stackView.clear();
+
                             var list2 = stackView.push(Qt.resolvedUrl("pages/loginPage.qml"));
                             list2.loginSucceeded.connect(internal.validateUser);
+
                         }
                     }
 

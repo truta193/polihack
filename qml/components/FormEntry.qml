@@ -9,7 +9,7 @@ Rectangle {
 
     property url iconSource: "../../assets/images/save_icon.svg"
 
-
+    signal gotoPdfView()
 
     MouseArea{
         id: clickChecker
@@ -21,9 +21,14 @@ Rectangle {
         onExited: {
             slideDownAnim.start()
         }
+        onClicked:  {
+          window.stack.push("../pages/pdfPage.qml");
+        }
     }
 
-
+    Loader {
+        id: pageLoader
+    }
 
     Menu {
         id: contextMenu
