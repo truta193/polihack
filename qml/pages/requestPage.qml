@@ -30,6 +30,7 @@ Rectangle {
             anchors.top: selecterText.bottom
             anchors.topMargin: 18
             anchors.horizontalCenter: parent.horizontalCenter
+            model: ["", "Adeverinta", "Reteta",  "Trimitere"]
         }
 
         TextArea {
