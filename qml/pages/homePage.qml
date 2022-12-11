@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 
+
 Rectangle {
     id: bg
 
@@ -8,6 +9,7 @@ Rectangle {
 
     implicitHeight: 400
     implicitWidth: 800
+    anchors.fill: parent
 
     Rectangle {
         id: leftHome
@@ -29,6 +31,10 @@ Rectangle {
             label2.text += otcm
             textArea.visible = true
             requestButton.visible = true
+        }
+
+        function askDoctor(comment) {
+
         }
 
 
@@ -69,19 +75,22 @@ Rectangle {
                 visible: false
             }
 
+
             Button {
 
                 id: requestButton
                 width: 200
                 height: 50
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.verticalCenterOffset: 100
-                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenterOffset: 124
+                anchors.horizontalCenter: textArea.horizontalCenter
 
                 visible: false
 
                 implicitWidth: 250
                 implicitHeight: 70
+
+                onClicked: {leftHome.askDoctor(textArea.text)}
 
 
                 property color defaultColor: "#4678E5"
@@ -104,7 +113,7 @@ Rectangle {
                     color: internal.dynamicColor
                     radius: 20
                     Text {
-                        text: "Request an Appointment"
+                        text: "Ask a doctor"
                         color: "#ffffff"
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
@@ -124,6 +133,8 @@ Rectangle {
                 anchors.topMargin: 20
                 anchors.leftMargin: 16
                 placeholderText: qsTr("Comment...")
+                wrapMode: "WrapAtWordBoundaryOrAnywhere"
+
             }
 
         }

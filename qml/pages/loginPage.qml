@@ -63,8 +63,9 @@ Rectangle {
                 validator: RegularExpressionValidator {
                     regularExpression: /^[0-9]{1,6}$/
                 }
-                placeholderText: qsTr("")
+                placeholderText: qsTr("Code")
                 hoverEnabled: true
+                visible: false
 
                 PropertyAnimation {
                     id: resizeAnim
@@ -135,6 +136,7 @@ Rectangle {
                             resizeAnim.start();
                             authField.focus = true
                             textField.enabled = false
+                            authField.visible = true
                             if (authField.text.length == 6) {
                                 loginSucceeded();
                             }
@@ -152,3 +154,9 @@ Rectangle {
 
 }
 
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+##^##*/
