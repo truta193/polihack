@@ -80,6 +80,7 @@ Rectangle {
 
             TextField {
                 id: textField
+                focus: true
                 x: 10
                 y: 163
                 width: 229

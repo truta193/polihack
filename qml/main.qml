@@ -51,6 +51,7 @@ Window {
             draftButton.enabled = true
             formButton.enabled = true
             formButton.isActive = true
+            requestButton.enabled = true
             stackView.pop()
             stackView.push(Qt.resolvedUrl("pages/formPage.qml"))
 
@@ -230,6 +231,7 @@ Window {
                                 //ADD BUTTONS HERE
                                 formButton.isActive = true
                                 draftButton.isActive = false
+                                requestButton.isActive = false
                                 stackView.push(Qt.resolvedUrl("pages/formPage.qml"))
                             }
 
@@ -243,7 +245,20 @@ Window {
                                 //ADD BUTTONS HERE
                                 formButton.isActive = false
                                 draftButton.isActive = true
+                                requestButton.isActive = false
                                 stackView.push(Qt.resolvedUrl("pages/homePage.qml"))
+                            }
+                        }
+
+                        LeftMenuButton {
+                            id: requestButton
+                            width: leftbar.width
+                            title: "Request"
+                            onClicked: {
+                                formButton.isActive = false
+                                draftButton.isActive = false
+                                requestButton.isActive = true
+                                stackView.push(Qt.resolvedUrl("pages/requestPage.qml"))
                             }
                         }
                     }
@@ -269,6 +284,7 @@ Window {
                             menuToggle.enabled = false;
                             draftButton.enabled = false;
                             formButton.enabled = false;
+                            requestButton.enabled = false;
                             leftbar.color = "#3B4252";
 
                             stackView.clear();

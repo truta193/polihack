@@ -28,6 +28,8 @@ l1=['back_pain','constipation','abdominal_pain','diarrhoea','mild_fever','yellow
 'silver_like_dusting','small_dents_in_nails','inflammatory_nails','blister','red_sore_around_nose',
 'yellow_crust_ooze']
 
+print(len(l1))
+
 disease=['Fungal infection','Allergy','GERD','Chronic cholestasis','Drug Reaction',
 'Peptic ulcer diseae','AIDS','Diabetes','Gastroenteritis','Bronchial Asthma','Hypertension',
 ' Migraine','Cervical spondylosis',
@@ -102,8 +104,10 @@ def NaiveBayes(Symptom1,Symptom2,Symptom3,Symptom4,Symptom5):
 
     if (h==1):
         # Insereaza text de ce posibila boala este
+        return disease[predicted]
         pass
     else:
+        return "Unsure"
         # Insereaza text ca nu este sigur
         pass
 

@@ -47,7 +47,7 @@ class MainWindow(QObject):
         QObject.__init__(self)
 
 #Signals are for me to send data to the UI
-    setName = Signal(str)
+    diagnosticCommunicator = Signal(str)
 
 
 #Slots are for the UI to send data
@@ -60,6 +60,12 @@ class MainWindow(QObject):
         url = "http://127.0.0.1:8000/api/v1/people/{CNP}"
         response = requests.put(url, json=json_data)
         sendEmail("Connect with the following code:", json_data['contact'], newTag)
+
+    @Slot(str, str, str, str, str)
+    def getSymptoms(self,a,b,c,d,e):
+        print(a,b,c,d,e)
+        diag = NaiveBayes(a,b,c,d,e)
+        self.diagnosticCommunicator.emit("" + str(diag))
 
 
 # 3431294843244
