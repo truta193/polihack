@@ -31,7 +31,7 @@ Item {
                     anchors.leftMargin: 0
                     anchors.rightMargin: 0
                     labelText: "Retete"
-                    itemCount: 3
+                    itemCount: 7
 
 
                 }
@@ -41,7 +41,7 @@ Item {
                     anchors.leftMargin: 0
                     anchors.rightMargin: 0
                     labelText: "Adeverinte"
-                    itemCount: 8
+                    itemCount: 6
 
                 }
                 CategoryDropdown {
@@ -49,8 +49,8 @@ Item {
                     anchors.right: parent.right
                     anchors.leftMargin: 0
                     anchors.rightMargin: 0
-                    labelText: "Ceva"
-                    itemCount: 5
+                    labelText: "Trimiteri"
+                    itemCount: 8
 
                 }
             }

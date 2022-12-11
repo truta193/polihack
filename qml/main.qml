@@ -226,7 +226,7 @@ Window {
                         LeftMenuButton {
                             id: formButton
                             width: leftbar.width
-                            title: "My documents"
+                            title: "Documents"
                             onClicked: {
                                 //ADD BUTTONS HERE
                                 formButton.isActive = true
@@ -240,7 +240,8 @@ Window {
                         LeftMenuButton {
                             id: draftButton
                             width: leftbar.width
-                            title: "All documents"
+                            title: "Program & Contact"
+                            iconSource: "../../assets/images/bookmark.png"
                             onClicked:  {
                                 //ADD BUTTONS HERE
                                 formButton.isActive = false
@@ -254,6 +255,7 @@ Window {
                             id: requestButton
                             width: leftbar.width
                             title: "Request"
+                            iconSource: "../../assets/images/plus.png"
                             onClicked: {
                                 formButton.isActive = false
                                 draftButton.isActive = false

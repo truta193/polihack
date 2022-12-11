@@ -11,7 +11,7 @@ Button {
     property color hoverColor: "#4C566A"
     property color clickColor: "#4678E5"
     property bool isActive: false
-    property string title: "Salutare tovarasi"
+    property string title: "Monday, 14/12/2022 13:20"
     property int neededWidth: 300
 
 

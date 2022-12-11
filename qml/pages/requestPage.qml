@@ -57,12 +57,22 @@ Rectangle {
             implicitWidth: 250
             implicitHeight: 70
 
-            onClicked: {leftHome.askDoctor(textArea.text)}
+            onClicked: {
+                //leftHome.askDoctor(textArea.text)
+                requestButton.defaultColor = "#5fd435"
+                requestButton.hoverColor = "#92d47b"
+                requestButton.clickColor = "#427330"
+                textArea.text = ""
+                internalText.text = "Sent"
+            }
 
 
             property color defaultColor: "#4678E5"
             property color hoverColor: "#7EA1EE"
             property color clickColor: "#3155A1"
+
+
+
             x: 66
 
             QtObject {
@@ -81,6 +91,7 @@ Rectangle {
                 color: internal.dynamicColor
                 radius: 20
                 Text {
+                    id: internalText
                     text: "Request"
                     color: "#ffffff"
                     anchors.horizontalCenter: parent.horizontalCenter
