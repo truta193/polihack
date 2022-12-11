@@ -16,6 +16,7 @@ Window {
     property alias stack: stackView
     property alias forms: formButton
     property alias helper: draftButton
+    property alias leftToggle: menuToggle
 
     property bool windowStatus: false
     property bool leftBarStatus: false
