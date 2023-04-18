@@ -1,0 +1,3 @@
+{
+    "files": ["resources.qrc","main.py","Main.qml","App.qml","pages/DocumentBrowser.qml","pages/PacientDocumentBrowser.qml"]
+}
